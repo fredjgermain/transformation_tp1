@@ -1,0 +1,40 @@
+
+# TP
+
+## PARTIE 1 - Exploration
+
+- Identification du sense des variables et production d'un encodage et codebook si necessaires. (Labels et value labels)
+
+
+- Distributional summary. 
+- degree completude. 
+- completude horizontales et verticales. 
+- Identification de *schema* et *encodage* desirable 
+- identification des valeurs invalides. 
+- degree invalidite. 
+
+
+- Identifications des transformations possibles. 
+  - Convertion de date, strings etc. 
+  - Re-encodage/replace. 
+
+
+
+QUESTION:
+?? Est-ce qu’il y’a des dépendances évidentes au niveau des descripteurs(features)? Ca veut dire quoi ?
+Selection des features
+
+
+
+## PARTIE 2 - Nettoyage 
+- Flag valeur invalid. 
+- Flag valeur manquante. 
+- Definition de regle d'imputation de valeur manquante/invalide. 
+- Hot-Encoding 
+- Selection de variable d'interet
+- Standardisation 
+
+
+
+SUGGESTION:
+Faire chacun de son cote un peu d'exploration de donner. Et trouver un mode de partage de nos observations; git ou autre. 

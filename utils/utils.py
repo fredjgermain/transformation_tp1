@@ -56,7 +56,7 @@ def distributional_summary(df:pd.DataFrame) -> pd.DataFrame:
   df_describe.loc['missing_p'] = (N-count)/N
   df_describe.loc['cardinality'] = df.nunique()
   df_describe.loc['unique_p'] = { c:(df[c].value_counts() == 1).sum() for c in df.columns }
-  df_describe.loc['unique_p'] = df_describe.loc['unique_p']/df_describe.loc['count'] 
+  df_describe.loc['unique_p'] = df_describe.loc['unique_p'].div(df_describe.loc['count']).infer_objects(copy=False) 
   df_describe.loc['most_freq'] = { c:df[c].value_counts().idxmax() for c in df.columns } 
   df_describe.loc['least_freq'] = { c:df[c].value_counts().idxmin() for c in df.columns } 
   

@@ -1,5 +1,25 @@
-
 # TP
+
+
+## TODO
+- Partie 1 
+- Identification des valeurs valid/invalid, si pertinent? (A discuter) 
+- Identification des outliers (box plot) ... pas beaucoup de outliers ? (A discuter et mettre au propre) 
+- (David) Graph distribution, AVANT et/ou APRES transformation (variables pourcentage doivent etre transforme en numerique pour etre grapher). 
+- (Fred) Completer redaction des commentaires. 
+
+- Partie 2 
+- Appliquer les transformations indiquer en partie 1 
+  - (Fred) Reprendre les transformations deja faites dans tp1_0.ipynb (mettre au propre) 
+  - (David) Transformation des variables categoriques avec get_dummies ou autres. (pas encore fait)
+  - (Fred) Recalculer distributional summary et completude APRES transformations. (Rapide) 
+    - Apres recalcule de completude decider qu'elles variables a trop de missing (voir enoncer 1-2% de missing), est-ce que les imputations permettent de sauver nos colonnes. 
+  - (David) Redaction des commentaires pour la partie/etape 2. 
+
+
+
+
+
 
 ## PARTIE 1 - Exploration
 

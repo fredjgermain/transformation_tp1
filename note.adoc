@@ -1,5 +1,9 @@
 # TP
 
+'earliest_cr_line' keep month ? 
+
+
+
 
 ## TODO
 - Partie 1 

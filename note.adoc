@@ -21,6 +21,8 @@
   - (David) Redaction des commentaires pour la partie/etape 2. 
 
 
+## DONE 
+
 
 
 

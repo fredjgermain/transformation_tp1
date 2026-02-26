@@ -1,4 +1,6 @@
 import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
 from typing import Callable , List, Tuple, TypeAlias 
 
 
@@ -83,4 +85,58 @@ def degree_completeness(df:pd.DataFrame, axis=0)-> pd.DataFrame:
   df_completeness = pd.DataFrame( ((N - pd.isnull(df).astype(int).sum(axis=axis)) / N), columns=['completeness'] ) 
   return df_completeness 
 
+def plot_distributions(df: pd.DataFrame, figsize=(16, 16), bins=10, cols_per_row=4):
+    """
+    Affiche les histogrammes de toutes les colonnes numériques dans une grille.
+    """
+    numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+    
+    if not numeric_cols:
+        print("Aucune colonne numérique trouvée.")
+        return
+    
+    n_cols = len(numeric_cols)
+    n_rows = int(np.ceil(n_cols / cols_per_row))
+    
+    fig, axes = plt.subplots(n_rows, cols_per_row, figsize=figsize)
+    axes = axes.flatten() if n_cols > 1 else [axes]
+    
+    for i, col in enumerate(numeric_cols):
+        axes[i].hist(df[col].dropna(), bins=bins, edgecolor='black')
+        axes[i].set_title(col, fontsize=12)
+        axes[i].set_xlabel('')
+        axes[i].set_ylabel('Fréquence')
+    
+    for j in range(i + 1, len(axes)):
+        axes[j].axis('off')
+    
+    plt.tight_layout()
+    plt.show()
 
+def plot_boxplots(df: pd.DataFrame, figsize=(16, 26), cols_per_row=4):
+    """
+    Affiche les boxplots de toutes les colonnes numériques dans une grille.
+    """
+    numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+    
+    if not numeric_cols:
+        print("Aucune colonne numérique trouvée.")
+        return
+    
+    n_cols = len(numeric_cols)
+    n_rows = int(np.ceil(n_cols / cols_per_row))
+    
+    fig, axes = plt.subplots(n_rows, cols_per_row, figsize=figsize)
+    axes = axes.flatten() if n_cols > 1 else [axes]
+    
+    for i, col in enumerate(numeric_cols):
+        axes[i].boxplot(df[col].dropna(), vert=True)
+        axes[i].set_title(col, fontsize=12)
+        axes[i].set_ylabel('Valeurs')
+        axes[i].set_xticklabels([''])
+    
+    for j in range(i + 1, len(axes)):
+        axes[j].axis('off')
+    
+    plt.tight_layout()
+    plt.show()
